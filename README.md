@@ -2,10 +2,11 @@
 [![BetterDiscord](https://img.shields.io/badge/BetterDiscord-plugin-5865F2)](https://betterdiscord.app)
 [![License](https://img.shields.io/badge/license-MIT-green)](https://github.com/8ug8ird/SimpleTranslator/blob/main/LICENSE)
 
+![Input Translation](./assets/Discord_x5Ra6dq1He.gif)
+
+
 ![Message Translation](./assets/Discord_ftm5Jkpvj7.gif)
 
-
-![Input Translation](./assets/Discord_x5Ra6dq1He.gif)
 
 <br>
 
