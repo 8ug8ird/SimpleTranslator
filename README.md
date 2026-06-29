@@ -2,14 +2,11 @@
 [![BetterDiscord](https://img.shields.io/badge/BetterDiscord-plugin-5865F2)](https://betterdiscord.app)
 [![License](https://img.shields.io/badge/license-MIT-green)](https://github.com/8ug8ird/SimpleTranslator/blob/main/LICENSE)
 
-<img width="1216" height="191" alt="Discord_pPFaCcDmMG" src="https://github.com/user-attachments/assets/a33c70df-1722-44b2-801d-f7fca1721f7e" />
+![Message Translation](./assets/Discord_ftm5Jkpvj7.gif)
 
-<br>
-<br>
 
-<img width="1216" height="466" alt="Discord_0Fxe2lf907" src="https://github.com/user-attachments/assets/55ebe63b-759b-4f9f-8259-d0987b89230f" />
+![Input Translation](./assets/Discord_x5Ra6dq1He.gif)
 
-<br>
 <br>
 
 Translate messages or your own text before sending, directly in Discord.
