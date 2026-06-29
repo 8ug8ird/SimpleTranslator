@@ -9,7 +9,8 @@
 
 <img width="1216" height="466" alt="Discord_0Fxe2lf907" src="https://github.com/user-attachments/assets/55ebe63b-759b-4f9f-8259-d0987b89230f" />
 
-
+<br>
+<br>
 
 Translate messages or your own text before sending, directly in Discord.
 
