@@ -226,6 +226,33 @@ const LANGUAGES_LOCALIZED = {
         "da": "Данська", "no": "Норвезька", "fi": "Фінська", "hr": "Хорватська", "lt": "Литовська",
         "hu": "Угорська", "ro": "Румунська", "cs": "Чеська", "el": "Грецька", "bg": "Болгарська",
         "uk": "Українська", "zh-TW": "Китайська (традиц.)"
+    },
+    "hi": {
+        "ar": "अरबी", "zh": "चीनी (सरलीकृत)", "nl": "डच", "en": "अंग्रेज़ी", "fr": "फ़्रेंच",
+        "de": "जर्मन", "he": "हिब्रू", "hi": "हिन्दी", "id": "इंडोनेशियाई", "it": "इतालवी",
+        "ja": "जापानी", "ko": "कोरियाई", "pl": "पोलिश", "pt": "पुर्तगाली (BR)", "pt-PT": "पुर्तगाली (PT)",
+        "ru": "रूसी", "es": "स्पेनिश", "sv": "स्वीडिश", "th": "थाई", "tr": "तुर्की", "vi": "वियतनामी",
+        "da": "डेनिश", "no": "नॉर्वेजियन", "fi": "फिनिश", "hr": "क्रोएशियाई", "lt": "लिथुआनियाई",
+        "hu": "हंगेरियन", "ro": "रोमानियाई", "cs": "चेक", "el": "ग्रीक", "bg": "बुल्गारियाई",
+        "uk": "यूक्रेनी", "zh-TW": "चीनी (पारंपरिक)"
+    },
+    "th": {
+        "ar": "อาหรับ", "zh": "จีน (ตัวย่อ)", "nl": "ดัตช์", "en": "อังกฤษ", "fr": "ฝรั่งเศส",
+        "de": "เยอรมัน", "he": "ฮีบรู", "hi": "ฮินดี", "id": "อินโดนีเซีย", "it": "อิตาลี",
+        "ja": "ญี่ปุ่น", "ko": "เกาหลี", "pl": "โปแลนด์", "pt": "โปรตุเกส (BR)", "pt-PT": "โปรตุเกส (PT)",
+        "ru": "รัสเซีย", "es": "สเปน", "sv": "สวีเดน", "th": "ไทย", "tr": "ตุรกี", "vi": "เวียดนาม",
+        "da": "เดนมาร์ก", "no": "นอร์เวย์", "fi": "ฟินแลนด์", "hr": "โครเอเชีย", "lt": "ลิทัวเนีย",
+        "hu": "ฮังการี", "ro": "โรมาเนีย", "cs": "เช็ก", "el": "กรีก", "bg": "บัลแกเรีย",
+        "uk": "ยูเครน", "zh-TW": "จีน (ตัวเต็ม)"
+    },
+    "zh-TW": {
+        "ar": "阿拉伯文", "zh": "中文（簡體）", "nl": "荷蘭文", "en": "英文", "fr": "法文",
+        "de": "德文", "he": "希伯來文", "hi": "印地文", "id": "印尼文", "it": "義大利文",
+        "ja": "日文", "ko": "韓文", "pl": "波蘭文", "pt": "葡萄牙文（巴西）", "pt-PT": "葡萄牙文（葡萄牙）",
+        "ru": "俄文", "es": "西班牙文", "sv": "瑞典文", "th": "泰文", "tr": "土耳其文", "vi": "越南文",
+        "da": "丹麥文", "no": "挪威文", "fi": "芬蘭文", "hr": "克羅埃西亞文", "lt": "立陶宛文",
+        "hu": "匈牙利文", "ro": "羅馬尼亞文", "cs": "捷克文", "el": "希臘文", "bg": "保加利亞文",
+        "uk": "烏克蘭文", "zh-TW": "中文（繁體）"
     }
 };
 
@@ -1183,6 +1210,108 @@ const LOCALE = {
         changeInputLang: "Змініть мову введення, клацнувши на кнопці мови (напр. EN) поруч із перекладачем.",
         detectedInterfaceLanguage: "Виявлена мова інтерфейсу:",
         interfaceUpdated: "Мову інтерфейсу оновлено. Перезавантажте плагін (Ctrl+R), щоб застосувати."
+    },
+    "hi": {
+        translate: "अनुवाद करें",
+        remove: "अनुवाद हटाएं",
+        changeTarget: "लक्ष्य भाषा बदलें",
+        translated: "अनुवादित!",
+        translating: "अनुवाद हो रहा है...",
+        typeFirst: "पहले कुछ टाइप करें!",
+        error: "त्रुटि",
+        started: "SimpleTranslator शुरू हो गया!",
+        stopped: "SimpleTranslator बंद हो गया।",
+        langChanged: "भाषा बदली गई:",
+        to: "से",
+        contentNotFound: "संदेश सामग्री नहीं मिली।",
+        langGroup1: "A–E",
+        langGroup2: "F–K",
+        langGroup3: "L–Q",
+        langGroup4: "R–Z",
+        interfaceLanguageOverride: "इंटरफ़ेस भाषा (ओवरराइड):",
+        autoDetected: "स्वचालित (पता लगाया गया)",
+        rightClickToDisable: "बंद करने के लिए राइट-क्लिक करें",
+        clickToEnable: "चालू करने के लिए क्लिक करें",
+        clickToChange: "बदलने के लिए क्लिक करें",
+        translatorEnabled: "अनुवादक चालू है",
+        translatorDisabled: "अनुवादक बंद है",
+        translateInput: "इनपुट टेक्स्ट का अनुवाद करें",
+        inputLangChanged: "इनपुट भाषा बदली गई:",
+        chatLangChanged: "चैट अनुवाद भाषा बदली गई:",
+        chatLanguage: "चैट भाषा",
+        inputLanguage: "इनपुट भाषा",
+        changeChatLang: "किसी संदेश पर राइट-क्लिक करके चैट भाषा बदलें।",
+        changeInputLang: "अनुवादक के पास भाषा बटन (जैसे EN) पर क्लिक करके इनपुट भाषा बदलें।",
+        detectedInterfaceLanguage: "पता लगाई गई इंटरफ़ेस भाषा:",
+        interfaceUpdated: "इंटरफ़ेस भाषा अपडेट हो गई। लागू करने के लिए प्लगइन रीलोड करें (Ctrl+R)।"
+    },
+    "th": {
+        translate: "แปล",
+        remove: "ลบคำแปล",
+        changeTarget: "เปลี่ยนภาษาเป้าหมาย",
+        translated: "แปลแล้ว!",
+        translating: "กำลังแปล...",
+        typeFirst: "พิมพ์ข้อความก่อน!",
+        error: "ข้อผิดพลาด",
+        started: "SimpleTranslator เริ่มทำงานแล้ว!",
+        stopped: "SimpleTranslator หยุดทำงานแล้ว",
+        langChanged: "เปลี่ยนภาษาเป็น:",
+        to: "เป็น",
+        contentNotFound: "ไม่พบเนื้อหาข้อความ",
+        langGroup1: "A–E",
+        langGroup2: "F–K",
+        langGroup3: "L–Q",
+        langGroup4: "R–Z",
+        interfaceLanguageOverride: "ภาษาอินเทอร์เฟซ (กำหนดเอง):",
+        autoDetected: "อัตโนมัติ (ตรวจพบ)",
+        rightClickToDisable: "คลิกขวาเพื่อปิดใช้งาน",
+        clickToEnable: "คลิกเพื่อเปิดใช้งาน",
+        clickToChange: "คลิกเพื่อเปลี่ยน",
+        translatorEnabled: "เปิดใช้งานตัวแปลแล้ว",
+        translatorDisabled: "ปิดใช้งานตัวแปลแล้ว",
+        translateInput: "แปลข้อความที่ป้อน",
+        inputLangChanged: "เปลี่ยนภาษาที่ป้อนเป็น:",
+        chatLangChanged: "เปลี่ยนภาษาแปลแชทเป็น:",
+        chatLanguage: "ภาษาแชท",
+        inputLanguage: "ภาษาที่ป้อน",
+        changeChatLang: "เปลี่ยนภาษาแชทโดยคลิกขวาที่ข้อความ",
+        changeInputLang: "เปลี่ยนภาษาที่ป้อนโดยคลิกปุ่มภาษา (เช่น EN) ข้างตัวแปล",
+        detectedInterfaceLanguage: "ภาษาอินเทอร์เฟซที่ตรวจพบ:",
+        interfaceUpdated: "อัปเดตภาษาอินเทอร์เฟซแล้ว รีโหลดปลั๊กอิน (Ctrl+R) เพื่อใช้งาน"
+    },
+    "zh-TW": {
+        translate: "翻譯",
+        remove: "移除翻譯",
+        changeTarget: "變更目標語言",
+        translated: "已翻譯！",
+        translating: "翻譯中...",
+        typeFirst: "請先輸入內容！",
+        error: "錯誤",
+        started: "SimpleTranslator 已啟動！",
+        stopped: "SimpleTranslator 已停止。",
+        langChanged: "語言已變更為：",
+        to: "為",
+        contentNotFound: "找不到訊息內容。",
+        langGroup1: "A–E",
+        langGroup2: "F–K",
+        langGroup3: "L–Q",
+        langGroup4: "R–Z",
+        interfaceLanguageOverride: "介面語言（覆寫）：",
+        autoDetected: "自動（已偵測）",
+        rightClickToDisable: "右鍵點擊以停用",
+        clickToEnable: "點擊以啟用",
+        clickToChange: "點擊以變更",
+        translatorEnabled: "翻譯器已啟用",
+        translatorDisabled: "翻譯器已停用",
+        translateInput: "翻譯輸入文字",
+        inputLangChanged: "輸入語言已變更為：",
+        chatLangChanged: "聊天翻譯語言已變更為：",
+        chatLanguage: "聊天語言",
+        inputLanguage: "輸入語言",
+        changeChatLang: "在訊息上按右鍵以變更聊天語言。",
+        changeInputLang: "點擊翻譯器旁的語言按鈕（例如 EN）以變更輸入語言。",
+        detectedInterfaceLanguage: "偵測到的介面語言：",
+        interfaceUpdated: "介面語言已更新。請重新載入外掛（Ctrl+R）以套用。"
     }
 };
 
@@ -1247,19 +1376,60 @@ function getReplyContentElement(messageId) {
            replyContainer;
 }
 
+const REPLY_STRUCTURAL_CLASS_PATTERN = /username|botTag|badge|edited|timestamp|Timestamp|icon|avatar|mention/i;
+
+function getReplyRawText(replyEl) {
+    if (!replyEl) return "";
+    const clone = replyEl.cloneNode(true);
+    clone.querySelectorAll('a, time, [aria-label*="editado" i], [aria-label*="edited" i]')
+        .forEach(el => el.remove());
+    clone.querySelectorAll('[class]').forEach(el => {
+        if (REPLY_STRUCTURAL_CLASS_PATTERN.test(el.className || "")) el.remove();
+    });
+
+    let text = clone.textContent || "";
+
+    text = text.replace(/\(editado\)[\s\S]*$/i, "").replace(/\(edited\)[\s\S]*$/i, "");
+
+    return text.trim();
+}
+
+const TRANSLATION_CACHE = new Map();
+const TRANSLATION_CACHE_MAX = 500;
+
+function getCacheKey(text, targetLang) {
+    return `${targetLang}::${text}`;
+}
+
+function cacheSet(key, value) {
+    if (TRANSLATION_CACHE.size >= TRANSLATION_CACHE_MAX) {
+        const oldestKey = TRANSLATION_CACHE.keys().next().value;
+        TRANSLATION_CACHE.delete(oldestKey);
+    }
+    TRANSLATION_CACHE.set(key, value);
+}
+
 async function fetchTranslation(text, targetLang) {
+    const cacheKey = getCacheKey(text, targetLang);
+    if (TRANSLATION_CACHE.has(cacheKey)) {
+        return TRANSLATION_CACHE.get(cacheKey);
+    }
+
     const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=${targetLang}&dt=t&q=${encodeURIComponent(text)}`;
     const res = await BdApi.Net.fetch(url);
     if (!res.ok) throw new Error("Network error");
     const data = await res.json();
     if (!data?.[0]?.[0]?.[0]) throw new Error("Invalid response");
-    return data[0].map(chunk => chunk[0]).join('');
+    const translated = data[0].map(chunk => chunk[0]).join('');
+
+    cacheSet(cacheKey, translated);
+    return translated;
 }
 
 const LANG_ABBR = {
     "ar": "AR", "zh": "ZH", "nl": "NL", "en": "EN", "fr": "FR",
     "de": "DE", "he": "HE", "hi": "HI", "id": "ID", "it": "IT",
-    "ja": "JA", "ko": "KO", "pl": "PL", "pt": "PT", "ru": "RU",
+    "ja": "JA", "ko": "KO", "pl": "PL", "pt": "PT", "pt-PT": "PT-PT", "ru": "RU",
     "es": "ES", "sv": "SV", "th": "TH", "tr": "TR", "vi": "VI",
     "da": "DA", "no": "NO", "fi": "FI", "hr": "HR", "lt": "LT",
     "hu": "HU", "ro": "RO", "cs": "CS", "el": "EL", "bg": "BG",
@@ -1279,6 +1449,15 @@ module.exports = class SimpleTranslator {
         this._styleElement = null;
         this._observer = null;
         this._langObserver = null;
+        this._navDispatcher = null;
+        this._navHandler = null;
+        this._navEvents = null;
+        this._navDebounce = null;
+        this._obsDebounce = null;
+        this._inputButtonsInterval = null;
+        this._translatedMessages = new Map();
+        this._messageObservers = new Map();
+        this._replyOriginalTextNodes = new Map();
     }
 
     start() {
@@ -1384,7 +1563,7 @@ module.exports = class SimpleTranslator {
         });
 
         this._injectInputButtons();
-        this._setupObserver();
+        this._setupNavigationListener();
         UI.showToast(getLocaleString("started"), { type: "success" });
     }
 
@@ -1395,8 +1574,12 @@ module.exports = class SimpleTranslator {
         }
         this._removeInputButtons();
         this._removeStyles();
-        this._removeObserver();
+        this._removeNavigationListener();
         this._removeLanguageObserver();
+        this._messageObservers.forEach(observer => observer.disconnect());
+        this._messageObservers.clear();
+        this._translatedMessages.clear();
+        this._replyOriginalTextNodes.clear();
         document.querySelectorAll("[data-st-original]").forEach(el => {
             el.innerHTML = el.dataset.stOriginal;
             delete el.dataset.stOriginal;
@@ -1420,19 +1603,85 @@ module.exports = class SimpleTranslator {
         }
     }
 
-    _setupObserver() {
-        if (this._observer) return;
-        const target = document.getElementById("app-mount") || document.body;
-        this._observer = new MutationObserver(() => {
-            if (!this._inputButton || !document.contains(this._inputButton) ||
-                !this._langButton || !document.contains(this._langButton)) {
-                setTimeout(() => this._injectInputButtons(), 200);
+    _setupNavigationListener() {
+        this._navDispatcher = null;
+        this._navHandler = null;
+
+        try {
+            const Dispatcher = BdApi.Webpack.getModule(
+                m => m?.dispatch && m?.subscribe && m?.unsubscribe,
+                { searchExports: false }
+            );
+            if (Dispatcher?.subscribe) {
+                this._navHandler = () => {
+                    clearTimeout(this._navDebounce);
+                    this._navDebounce = setTimeout(() => this._injectInputButtons(), 50);
+                };
+                const NAV_EVENTS = [
+                    "CHANNEL_SELECT",
+                    "VOICE_CHANNEL_SELECT",
+                    "GUILD_SELECT"
+                ];
+                NAV_EVENTS.forEach(evt => {
+                    try { Dispatcher.subscribe(evt, this._navHandler); } catch (_) {}
+                });
+                this._navEvents = NAV_EVENTS;
+                this._navDispatcher = Dispatcher;
             }
-        });
-        this._observer.observe(target, { childList: true, subtree: true, attributes: false });
+        } catch (e) {
+            console.warn("[SimpleTranslator] Dispatcher não encontrado, usando fallback de observer.", e);
+        }
+
+        this._setupScopedFallbackObserver();
+
+        if (!this._inputButtonsInterval) {
+            this._inputButtonsInterval = setInterval(() => {
+                if (!this._inputButton || !document.contains(this._inputButton) ||
+                    !this._langButton || !document.contains(this._langButton)) {
+                    this._injectInputButtons();
+                }
+            }, 800);
+        }
     }
 
-    _removeObserver() {
+    _removeNavigationListener() {
+        try {
+            if (this._navDispatcher && this._navHandler) {
+                (this._navEvents || ["CHANNEL_SELECT", "VOICE_CHANNEL_SELECT"]).forEach(evt => {
+                    try { this._navDispatcher.unsubscribe(evt, this._navHandler); } catch (_) {}
+                });
+            }
+        } catch (_) {}
+        clearTimeout(this._navDebounce);
+        this._navDispatcher = null;
+        this._navHandler = null;
+        this._navEvents = null;
+        this._removeScopedFallbackObserver();
+        if (this._inputButtonsInterval) {
+            clearInterval(this._inputButtonsInterval);
+            this._inputButtonsInterval = null;
+        }
+    }
+
+    _setupScopedFallbackObserver() {
+        if (this._observer) return;
+
+        const scopedTarget = document.getElementById("app-mount") || document.body;
+
+        this._observer = new MutationObserver(() => {
+            clearTimeout(this._obsDebounce);
+            this._obsDebounce = setTimeout(() => {
+                if (!this._inputButton || !document.contains(this._inputButton) ||
+                    !this._langButton || !document.contains(this._langButton)) {
+                    this._injectInputButtons();
+                }
+            }, 200);
+        });
+        this._observer.observe(scopedTarget, { childList: true, subtree: true, attributes: false });
+    }
+
+    _removeScopedFallbackObserver() {
+        clearTimeout(this._obsDebounce);
         if (this._observer) {
             this._observer.disconnect();
             this._observer = null;
@@ -1849,7 +2098,7 @@ module.exports = class SimpleTranslator {
         }
     }
 
-    _injectInputButtons() {
+    _injectInputButtons(_retryCount = 0) {
         if (this._inputButton && document.contains(this._inputButton) &&
             this._langButton && document.contains(this._langButton)) {
             return;
@@ -1859,7 +2108,8 @@ module.exports = class SimpleTranslator {
 
         const textbox = document.querySelector('[role="textbox"]');
         if (!textbox) {
-            setTimeout(() => this._injectInputButtons(), 1000);
+            const delay = _retryCount < 5 ? 150 : 1000;
+            setTimeout(() => this._injectInputButtons(_retryCount + 1), delay);
             return;
         }
 
@@ -1868,7 +2118,10 @@ module.exports = class SimpleTranslator {
         const buttonContainer = channelArea.querySelector('[class*="buttons"]');
         if (!buttonContainer) return;
 
-        if (buttonContainer.querySelector('.st-translate-btn') || buttonContainer.querySelector('.st-lang-btn')) return;
+        const orphanTranslate = buttonContainer.querySelector('.st-translate-btn');
+        const orphanLang = buttonContainer.querySelector('.st-lang-btn');
+        if (orphanTranslate) orphanTranslate.remove();
+        if (orphanLang) orphanLang.remove();
 
         const isEnabled = this._translationEnabled;
         const langName = getLanguagesList()[this.inputTargetLang] || this.inputTargetLang;
@@ -1967,6 +2220,60 @@ module.exports = class SimpleTranslator {
         this._closeLangDropdown();
     }
 
+    _watchTranslatedMessage(messageId, targetLang) {
+        this._stopWatchingMessage(messageId);
+
+        const row = document.querySelector(`li[id*="${messageId}"]`);
+        if (!row) return;
+
+        const observer = new MutationObserver(() => {
+            if (!document.contains(row)) {
+                this._stopWatchingMessage(messageId);
+                return;
+            }
+            const contentEl = getContentElement(messageId);
+            const stillTranslated = !!contentEl?.querySelector(`[data-st-translated="${targetLang}"]`);
+            if (!stillTranslated) {
+                this._reapplyTranslation(messageId);
+            }
+        });
+
+        observer.observe(row, { childList: true, subtree: true });
+        this._messageObservers.set(messageId, observer);
+    }
+
+    _stopWatchingMessage(messageId) {
+        const existing = this._messageObservers.get(messageId);
+        if (existing) {
+            existing.disconnect();
+            this._messageObservers.delete(messageId);
+        }
+    }
+
+    _reapplyTranslation(messageId) {
+        const cached = this._translatedMessages.get(messageId);
+        if (!cached) return;
+
+        const contentEl = getContentElement(messageId);
+        if (!contentEl) return;
+        if (contentEl.querySelector(`[data-st-translated="${cached.targetLang}"]`)) return;
+
+        contentEl.dataset.stOriginal = contentEl.innerHTML;
+
+        const translatedSpan = document.createElement("span");
+        translatedSpan.textContent = cached.translatedText;
+        translatedSpan.setAttribute("data-st-translated", cached.targetLang);
+
+        const btn = document.createElement("span");
+        btn.textContent = getShowOriginalLabel(getUserLanguage());
+        btn.style.cssText = "margin-left:6px;font-size:11px;opacity:0.55;cursor:pointer;color:var(--text-link);user-select:none;vertical-align:middle;";
+        btn.onclick = () => this._removeTranslation(messageId);
+
+        contentEl.innerHTML = "";
+        contentEl.appendChild(translatedSpan);
+        contentEl.appendChild(btn);
+    }
+
     async _translateMessage(message) {
         const contentEl = getContentElement(message.id);
         const replyEl = getReplyContentElement(message.id);
@@ -1995,15 +2302,54 @@ module.exports = class SimpleTranslator {
                 contentEl.innerHTML = "";
                 contentEl.appendChild(translatedSpan);
                 contentEl.appendChild(btn);
+
+                this._translatedMessages.set(message.id, {
+                    targetLang: this.targetLang,
+                    translatedText: translated
+                });
+                this._watchTranslatedMessage(message.id, this.targetLang);
             }
 
             if (replyEl) {
-                let replyRawText = message.referencedMessage?.content || replyEl.textContent;
+                let replyRawText = message.referencedMessage?.content || getReplyRawText(replyEl);
                 if (replyRawText && replyRawText.trim()) {
                     const translatedReply = await fetchTranslation(replyRawText, this.targetLang);
-                    replyEl.dataset.stOriginal = replyEl.innerHTML;
-                    replyEl.textContent = translatedReply;
-                    replyEl.setAttribute("data-st-translated", this.targetLang);
+
+                    if (!replyEl.dataset.stOriginal) {
+                        const textNodes = [];
+                        const collectTextNodes = (node) => {
+                            if (node.nodeType === 3) {
+                                if (node.textContent.trim()) textNodes.push(node);
+                                return;
+                            }
+                            if (node.nodeType !== 1) return;
+                            const cls = node.className || "";
+                            if (node.tagName === "A" ||
+                                (typeof cls === "string" && REPLY_STRUCTURAL_CLASS_PATTERN.test(cls))) {
+                                return;
+                            }
+                            Array.from(node.childNodes).forEach(collectTextNodes);
+                        };
+                        Array.from(replyEl.childNodes).forEach(collectTextNodes);
+
+                        if (textNodes.length > 0) {
+                            this._replyOriginalTextNodes.set(
+                                message.id,
+                                textNodes.map(n => ({ node: n, value: n.nodeValue }))
+                            );
+                            textNodes.forEach((n, i) => {
+                                n.nodeValue = i === 0 ? translatedReply : "";
+                            });
+                        } else {
+                            const translatedSpan = document.createElement("span");
+                            translatedSpan.textContent = translatedReply;
+                            translatedSpan.setAttribute("data-st-injected", "1");
+                            replyEl.appendChild(translatedSpan);
+                        }
+
+                        replyEl.dataset.stOriginal = "applied";
+                        replyEl.setAttribute("data-st-translated", this.targetLang);
+                    }
                 }
             }
 
@@ -2013,6 +2359,9 @@ module.exports = class SimpleTranslator {
     }
 
     _removeTranslation(messageId) {
+        this._stopWatchingMessage(messageId);
+        this._translatedMessages.delete(messageId);
+
         const contentEl = getContentElement(messageId);
         if (contentEl && contentEl.dataset.stOriginal) {
             contentEl.innerHTML = contentEl.dataset.stOriginal;
@@ -2023,10 +2372,16 @@ module.exports = class SimpleTranslator {
 
         const replyEl = getReplyContentElement(messageId);
         if (replyEl && replyEl.dataset.stOriginal) {
-            replyEl.innerHTML = replyEl.dataset.stOriginal;
+            const originalEntries = this._replyOriginalTextNodes.get(messageId);
+            if (originalEntries) {
+                originalEntries.forEach(({ node, value }) => {
+                    if (node.isConnected) node.nodeValue = value;
+                });
+                this._replyOriginalTextNodes.delete(messageId);
+            }
+            replyEl.querySelectorAll('[data-st-injected]').forEach(el => el.remove());
             delete replyEl.dataset.stOriginal;
             replyEl.removeAttribute('data-st-translated');
-            replyEl.querySelectorAll('[data-st-translated]').forEach(el => el.removeAttribute('data-st-translated'));
         }
     }
 };
