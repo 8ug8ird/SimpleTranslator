@@ -1,8 +1,8 @@
 /**
  * @name SimpleTranslator
  * @author 8ug8ird
- * @version 1.1.0
  * @authorId 698947564459917343
+ * @version 1.1.1
  * @description Translate messages or your own text before sending, directly in Discord.
  * @source https://github.com/8ug8ird/SimpleTranslator
  */
@@ -306,10 +306,6 @@ const LOCALE = {
         langChanged: "Language changed to:",
         to: "to",
         contentNotFound: "Message content not found.",
-        langGroup1: "A–E",
-        langGroup2: "F–K",
-        langGroup3: "L–Q",
-        langGroup4: "R–Z",
         interfaceLanguageOverride: "Interface language (override):",
         autoDetected: "Automatic (detected)",
         rightClickToDisable: "right click to disable",
@@ -340,10 +336,6 @@ const LOCALE = {
         langChanged: "Idioma alterado para:",
         to: "para",
         contentNotFound: "Conteúdo da mensagem não encontrado.",
-        langGroup1: "A–E",
-        langGroup2: "F–K",
-        langGroup3: "L–Q",
-        langGroup4: "R–Z",
         interfaceLanguageOverride: "Idioma da interface (substituir):",
         autoDetected: "Automático (detectado)",
         rightClickToDisable: "clique direito para desativar",
@@ -374,10 +366,6 @@ const LOCALE = {
         langChanged: "Idioma cambiado a:",
         to: "a",
         contentNotFound: "Contenido de mensaje no encontrado.",
-        langGroup1: "A–E",
-        langGroup2: "F–K",
-        langGroup3: "L–Q",
-        langGroup4: "R–Z",
         interfaceLanguageOverride: "Idioma de la interfaz (anular):",
         autoDetected: "Automático (detectado)",
         rightClickToDisable: "clic derecho para desactivar",
@@ -408,10 +396,6 @@ const LOCALE = {
         langChanged: "Langue changée en :",
         to: "vers",
         contentNotFound: "Contenu du message introuvable.",
-        langGroup1: "A–E",
-        langGroup2: "F–K",
-        langGroup3: "L–Q",
-        langGroup4: "R–Z",
         interfaceLanguageOverride: "Langue de l'interface (remplacement) :",
         autoDetected: "Automatique (détecté)",
         rightClickToDisable: "clic droit pour désactiver",
@@ -442,10 +426,6 @@ const LOCALE = {
         langChanged: "Sprache geändert zu:",
         to: "zu",
         contentNotFound: "Nachrichteninhalt nicht gefunden.",
-        langGroup1: "A–E",
-        langGroup2: "F–K",
-        langGroup3: "L–Q",
-        langGroup4: "R–Z",
         interfaceLanguageOverride: "Oberflächensprache (überschreiben):",
         autoDetected: "Automatisch (erkannt)",
         rightClickToDisable: "Rechtsklick zum Deaktivieren",
@@ -476,10 +456,6 @@ const LOCALE = {
         langChanged: "Lingua cambiata in:",
         to: "a",
         contentNotFound: "Contenuto del messaggio non trovato.",
-        langGroup1: "A–E",
-        langGroup2: "F–K",
-        langGroup3: "L–Q",
-        langGroup4: "R–Z",
         interfaceLanguageOverride: "Lingua dell'interfaccia (override):",
         autoDetected: "Automatico (rilevato)",
         rightClickToDisable: "clic destro per disattivare",
@@ -510,10 +486,6 @@ const LOCALE = {
         langChanged: "Язык изменён на:",
         to: "на",
         contentNotFound: "Содержимое сообщения не найдено.",
-        langGroup1: "А–Е",
-        langGroup2: "Ё–К",
-        langGroup3: "Л–П",
-        langGroup4: "Р–Я",
         interfaceLanguageOverride: "Язык интерфейса (переопределить):",
         autoDetected: "Автоматически (определено)",
         rightClickToDisable: "щелчок правой кнопкой для отключения",
@@ -544,10 +516,6 @@ const LOCALE = {
         langChanged: "言語を変更しました：",
         to: "へ",
         contentNotFound: "メッセージの内容が見つかりません。",
-        langGroup1: "A–E",
-        langGroup2: "F–K",
-        langGroup3: "L–Q",
-        langGroup4: "R–Z",
         interfaceLanguageOverride: "インターフェース言語（上書き）:",
         autoDetected: "自動（検出）",
         rightClickToDisable: "右クリックで無効化",
@@ -578,10 +546,6 @@ const LOCALE = {
         langChanged: "언어가 변경됨:",
         to: "으로",
         contentNotFound: "메시지 내용을 찾을 수 없음.",
-        langGroup1: "A–E",
-        langGroup2: "F–K",
-        langGroup3: "L–Q",
-        langGroup4: "R–Z",
         interfaceLanguageOverride: "인터페이스 언어 (재정의):",
         autoDetected: "자동 (감지됨)",
         rightClickToDisable: "마우스 오른쪽 클릭으로 비활성화",
@@ -612,10 +576,6 @@ const LOCALE = {
         langChanged: "语言已更改为：",
         to: "到",
         contentNotFound: "未找到消息内容。",
-        langGroup1: "A–E",
-        langGroup2: "F–K",
-        langGroup3: "L–Q",
-        langGroup4: "R–Z",
         interfaceLanguageOverride: "界面语言（覆盖）：",
         autoDetected: "自动（检测）",
         rightClickToDisable: "右键单击以禁用",
@@ -646,10 +606,6 @@ const LOCALE = {
         langChanged: "تم تغيير اللغة إلى:",
         to: "إلى",
         contentNotFound: "لم يتم العثور على محتوى الرسالة.",
-        langGroup1: "أ–د",
-        langGroup2: "ذ–ع",
-        langGroup3: "ف–ل",
-        langGroup4: "م–ي",
         interfaceLanguageOverride: "لغة الواجهة (تجاوز):",
         autoDetected: "تلقائي (تم الكشف)",
         rightClickToDisable: "انقر بزر الماوس الأيمن لتعطيل",
@@ -680,10 +636,6 @@ const LOCALE = {
         langChanged: "Dil değiştirildi:",
         to: "olarak",
         contentNotFound: "Mesaj içeriği bulunamadı.",
-        langGroup1: "A–E",
-        langGroup2: "F–K",
-        langGroup3: "L–Q",
-        langGroup4: "R–Z",
         interfaceLanguageOverride: "Arayüz dili (geçersiz kıl):",
         autoDetected: "Otomatik (algılandı)",
         rightClickToDisable: "devre dışı bırakmak için sağ tıklayın",
@@ -714,10 +666,6 @@ const LOCALE = {
         langChanged: "Zmieniono język na:",
         to: "na",
         contentNotFound: "Nie znaleziono treści wiadomości.",
-        langGroup1: "A–E",
-        langGroup2: "F–K",
-        langGroup3: "L–Q",
-        langGroup4: "R–Z",
         interfaceLanguageOverride: "Język interfejsu (nadpisz):",
         autoDetected: "Automatycznie (wykryto)",
         rightClickToDisable: "kliknij prawym przyciskiem, aby wyłączyć",
@@ -748,10 +696,6 @@ const LOCALE = {
         langChanged: "Taal gewijzigd naar:",
         to: "naar",
         contentNotFound: "Berichtinhoud niet gevonden.",
-        langGroup1: "A–E",
-        langGroup2: "F–K",
-        langGroup3: "L–Q",
-        langGroup4: "R–Z",
         interfaceLanguageOverride: "Interface-taal (overschrijven):",
         autoDetected: "Automatisch (gedetecteerd)",
         rightClickToDisable: "rechtsklik om uit te schakelen",
@@ -782,10 +726,6 @@ const LOCALE = {
         langChanged: "Språk ändrat till:",
         to: "till",
         contentNotFound: "Meddelandeinnehåll hittades inte.",
-        langGroup1: "A–E",
-        langGroup2: "F–K",
-        langGroup3: "L–Q",
-        langGroup4: "R–Z",
         interfaceLanguageOverride: "Gränssnittsspråk (åsidosätt):",
         autoDetected: "Automatisk (upptäckt)",
         rightClickToDisable: "högerklicka för att inaktivera",
@@ -816,10 +756,6 @@ const LOCALE = {
         langChanged: "Ngôn ngữ đã đổi thành:",
         to: "sang",
         contentNotFound: "Không tìm thấy nội dung tin nhắn.",
-        langGroup1: "A–E",
-        langGroup2: "F–K",
-        langGroup3: "L–Q",
-        langGroup4: "R–Z",
         interfaceLanguageOverride: "Ngôn ngữ giao diện (ghi đè):",
         autoDetected: "Tự động (đã phát hiện)",
         rightClickToDisable: "nhấp chuột phải để tắt",
@@ -850,10 +786,6 @@ const LOCALE = {
         langChanged: "Sprog ændret til:",
         to: "til",
         contentNotFound: "Beskedindhold ikke fundet.",
-        langGroup1: "A–E",
-        langGroup2: "F–K",
-        langGroup3: "L–Q",
-        langGroup4: "R–Z",
         interfaceLanguageOverride: "Grænsefladesprog (tilsidesæt):",
         autoDetected: "Automatisk (registreret)",
         rightClickToDisable: "højreklik for at deaktivere",
@@ -884,10 +816,6 @@ const LOCALE = {
         langChanged: "Språk endret til:",
         to: "til",
         contentNotFound: "Meldingens innhold ikke funnet.",
-        langGroup1: "A–E",
-        langGroup2: "F–K",
-        langGroup3: "L–Q",
-        langGroup4: "R–Z",
         interfaceLanguageOverride: "Grensesnittspråk (overstyring):",
         autoDetected: "Automatisk (oppdaget)",
         rightClickToDisable: "høyreklikk for å deaktivere",
@@ -918,10 +846,6 @@ const LOCALE = {
         langChanged: "Kieli vaihdettu:",
         to: "kohteeseen",
         contentNotFound: "Viestin sisältöä ei löytynyt.",
-        langGroup1: "A–E",
-        langGroup2: "F–K",
-        langGroup3: "L–Q",
-        langGroup4: "R–Z",
         interfaceLanguageOverride: "Käyttöliittymän kieli (ohitus):",
         autoDetected: "Automaattinen (havaittu)",
         rightClickToDisable: "poista käytöstä hiiren kakkospainikkeella",
@@ -952,10 +876,6 @@ const LOCALE = {
         langChanged: "Jezik promijenjen u:",
         to: "u",
         contentNotFound: "Sadržaj poruke nije pronađen.",
-        langGroup1: "A–E",
-        langGroup2: "F–K",
-        langGroup3: "L–Q",
-        langGroup4: "R–Z",
         interfaceLanguageOverride: "Jezik sučelja (nadjačaj):",
         autoDetected: "Automatski (otkriveno)",
         rightClickToDisable: "desni klik za isključivanje",
@@ -986,10 +906,6 @@ const LOCALE = {
         langChanged: "Kalba pakeista į:",
         to: "į",
         contentNotFound: "Pranešimo turinys nerastas.",
-        langGroup1: "A–E",
-        langGroup2: "F–K",
-        langGroup3: "L–Q",
-        langGroup4: "R–Z",
         interfaceLanguageOverride: "Sąsajos kalba (perrašyti):",
         autoDetected: "Automatinis (aptiktas)",
         rightClickToDisable: "dešiniuoju spustelėkite, kad išjungtumėte",
@@ -1020,10 +936,6 @@ const LOCALE = {
         langChanged: "Nyelv módosítva:",
         to: "erre",
         contentNotFound: "Üzenet tartalma nem található.",
-        langGroup1: "A–E",
-        langGroup2: "F–K",
-        langGroup3: "L–Q",
-        langGroup4: "R–Z",
         interfaceLanguageOverride: "Felület nyelve (felülbírálás):",
         autoDetected: "Automatikus (észlelt)",
         rightClickToDisable: "jobb klikk a kikapcsoláshoz",
@@ -1054,10 +966,6 @@ const LOCALE = {
         langChanged: "Limba schimbată în:",
         to: "în",
         contentNotFound: "Conținutul mesajului nu a fost găsit.",
-        langGroup1: "A–E",
-        langGroup2: "F–K",
-        langGroup3: "L–Q",
-        langGroup4: "R–Z",
         interfaceLanguageOverride: "Limba interfeței (suprascriere):",
         autoDetected: "Automat (detectat)",
         rightClickToDisable: "clic dreapta pentru a dezactiva",
@@ -1088,10 +996,6 @@ const LOCALE = {
         langChanged: "Jazyk změněn na:",
         to: "do",
         contentNotFound: "Obsah zprávy nenalezen.",
-        langGroup1: "A–E",
-        langGroup2: "F–K",
-        langGroup3: "L–Q",
-        langGroup4: "R–Z",
         interfaceLanguageOverride: "Jazyk rozhraní (přepsat):",
         autoDetected: "Automaticky (zjištěno)",
         rightClickToDisable: "klikněte pravým tlačítkem pro deaktivaci",
@@ -1122,10 +1026,6 @@ const LOCALE = {
         langChanged: "Η γλώσσα άλλαξε σε:",
         to: "σε",
         contentNotFound: "Το περιεχόμενο του μηνύματος δεν βρέθηκε.",
-        langGroup1: "Α–Ε",
-        langGroup2: "Ζ–Κ",
-        langGroup3: "Λ–Ο",
-        langGroup4: "Π–Ω",
         interfaceLanguageOverride: "Γλώσσα διεπαφής (παράκαμψη):",
         autoDetected: "Αυτόματο (εντοπίστηκε)",
         rightClickToDisable: "δεξί κλικ για απενεργοποίηση",
@@ -1156,10 +1056,6 @@ const LOCALE = {
         langChanged: "Езикът е променен на:",
         to: "на",
         contentNotFound: "Съдържанието на съобщението не е намерено.",
-        langGroup1: "А–Е",
-        langGroup2: "Ж–К",
-        langGroup3: "Л–П",
-        langGroup4: "Р–Я",
         interfaceLanguageOverride: "Език на интерфейса (заместване):",
         autoDetected: "Автоматично (открит)",
         rightClickToDisable: "щракнете с десен бутон за деактивиране",
@@ -1190,10 +1086,6 @@ const LOCALE = {
         langChanged: "Мову змінено на:",
         to: "на",
         contentNotFound: "Вміст повідомлення не знайдено.",
-        langGroup1: "А–Е",
-        langGroup2: "Ж–К",
-        langGroup3: "Л–П",
-        langGroup4: "Р–Я",
         interfaceLanguageOverride: "Мова інтерфейсу (перевизначення):",
         autoDetected: "Автоматично (виявлено)",
         rightClickToDisable: "клацніть правою кнопкою, щоб вимкнути",
@@ -1224,10 +1116,6 @@ const LOCALE = {
         langChanged: "भाषा बदली गई:",
         to: "से",
         contentNotFound: "संदेश सामग्री नहीं मिली।",
-        langGroup1: "A–E",
-        langGroup2: "F–K",
-        langGroup3: "L–Q",
-        langGroup4: "R–Z",
         interfaceLanguageOverride: "इंटरफ़ेस भाषा (ओवरराइड):",
         autoDetected: "स्वचालित (पता लगाया गया)",
         rightClickToDisable: "बंद करने के लिए राइट-क्लिक करें",
@@ -1258,10 +1146,6 @@ const LOCALE = {
         langChanged: "เปลี่ยนภาษาเป็น:",
         to: "เป็น",
         contentNotFound: "ไม่พบเนื้อหาข้อความ",
-        langGroup1: "A–E",
-        langGroup2: "F–K",
-        langGroup3: "L–Q",
-        langGroup4: "R–Z",
         interfaceLanguageOverride: "ภาษาอินเทอร์เฟซ (กำหนดเอง):",
         autoDetected: "อัตโนมัติ (ตรวจพบ)",
         rightClickToDisable: "คลิกขวาเพื่อปิดใช้งาน",
@@ -1292,10 +1176,6 @@ const LOCALE = {
         langChanged: "語言已變更為：",
         to: "為",
         contentNotFound: "找不到訊息內容。",
-        langGroup1: "A–E",
-        langGroup2: "F–K",
-        langGroup3: "L–Q",
-        langGroup4: "R–Z",
         interfaceLanguageOverride: "介面語言（覆寫）：",
         autoDetected: "自動（已偵測）",
         rightClickToDisable: "右鍵點擊以停用",
@@ -1426,6 +1306,80 @@ async function fetchTranslation(text, targetLang) {
     return translated;
 }
 
+const CUSTOM_EMOJI_PATTERN = /<(a?):([a-zA-Z0-9_]+):(\d+)>/g;
+
+function extractCustomEmojis(rawText) {
+    const segments = [];
+    let strippedText = "";
+    let lastIndex = 0;
+    let match;
+
+    CUSTOM_EMOJI_PATTERN.lastIndex = 0;
+    while ((match = CUSTOM_EMOJI_PATTERN.exec(rawText)) !== null) {
+        const textBefore = rawText.slice(lastIndex, match.index);
+        if (textBefore) {
+            segments.push({ type: "text", value: textBefore });
+            strippedText += textBefore;
+        }
+        segments.push({ type: "emoji", animated: match[1] === "a", name: match[2], id: match[3] });
+        lastIndex = CUSTOM_EMOJI_PATTERN.lastIndex;
+    }
+    const textAfter = rawText.slice(lastIndex);
+    if (textAfter) {
+        segments.push({ type: "text", value: textAfter });
+        strippedText += textAfter;
+    }
+
+    return { strippedText, segments };
+}
+
+function buildTranslatedContent(container, translatedText, segments) {
+    const emojiSegments = segments.filter(s => s.type === "emoji");
+
+    if (emojiSegments.length === 0) {
+        container.appendChild(document.createTextNode(translatedText));
+        return;
+    }
+
+    const firstTextIndex = segments.findIndex(s => s.type === "text");
+    const lastTextIndex = (() => {
+        for (let i = segments.length - 1; i >= 0; i--) {
+            if (segments[i].type === "text") return i;
+        }
+        return -1;
+    })();
+
+    const leading = [];
+    const trailing = [];
+    let sawText = false;
+
+    segments.forEach((seg, i) => {
+        if (seg.type === "text") { sawText = true; return; }
+        if (firstTextIndex === -1) { trailing.push(seg); return; }
+        if (!sawText) leading.push(seg);
+        else if (i > lastTextIndex) trailing.push(seg);
+        else trailing.push(seg);
+    });
+
+    const appendEmoji = (emoji) => {
+        const img = document.createElement("img");
+        img.src = `https://cdn.discordapp.com/emojis/${emoji.id}.${emoji.animated ? "gif" : "webp"}?size=48&quality=lossless`;
+        img.alt = `:${emoji.name}:`;
+        img.title = `:${emoji.name}:`;
+        img.className = "st-custom-emoji";
+        img.style.cssText = "width:1.375em;height:1.375em;vertical-align:bottom;object-fit:contain;margin:0 1px;";
+        container.appendChild(img);
+    };
+
+    leading.forEach(appendEmoji);
+    if (translatedText) {
+        if (leading.length > 0) container.appendChild(document.createTextNode(" "));
+        container.appendChild(document.createTextNode(translatedText));
+    }
+    if (trailing.length > 0 && translatedText) container.appendChild(document.createTextNode(" "));
+    trailing.forEach(appendEmoji);
+}
+
 const LANG_ABBR = {
     "ar": "AR", "zh": "ZH", "nl": "NL", "en": "EN", "fr": "FR",
     "de": "DE", "he": "HE", "hi": "HI", "id": "ID", "it": "IT",
@@ -1437,7 +1391,7 @@ const LANG_ABBR = {
 };
 
 module.exports = class SimpleTranslator {
-    static VERSION = "1.1.0";
+    static VERSION = "1.1.1";
     static RAW_URL = "https://raw.githubusercontent.com/8ug8ird/SimpleTranslator/refs/heads/main/SimpleTranslator.plugin.js";
     static RELEASE_URL = "https://github.com/8ug8ird/SimpleTranslator";
 
@@ -1468,8 +1422,8 @@ module.exports = class SimpleTranslator {
         this._lastNotifiedVersion = null;
         this._periodicCheckInterval = null;
         this._lastCheckTimestamp = this._loadLastCheck();
+        this._updateResetTimer = null;
     }
-
 
     _formatDate(timestamp) {
         if (!timestamp) return getLocaleString("noCheckYet");
@@ -1625,7 +1579,26 @@ module.exports = class SimpleTranslator {
         }
     }
 
+    _scheduleUpdateReset(panelRef) {
+        if (this._updateResetTimer) {
+            clearTimeout(this._updateResetTimer);
+            this._updateResetTimer = null;
+        }
+        if (this._updateState.status === "upToDate" || this._updateState.status === "error") {
+            this._updateResetTimer = setTimeout(() => {
+                this._updateState = { status: "idle", latestVersion: null, remoteText: null };
+                this._renderUpdateBtn(panelRef);
+                this._updateResetTimer = null;
+            }, 1500);
+        }
+    }
+
     async checkForUpdates(panelRef = null, silent = false) {
+        if (this._updateResetTimer) {
+            clearTimeout(this._updateResetTimer);
+            this._updateResetTimer = null;
+        }
+
         if (this._updateState.status === "checking") return;
         this._updateState = { status: "checking", latestVersion: null, remoteText: null };
         this._renderUpdateBtn(panelRef);
@@ -1677,6 +1650,7 @@ module.exports = class SimpleTranslator {
                 this._updateState = { status: "upToDate", latestVersion: remote, remoteText: null };
                 this._renderUpdateBtn(panelRef);
                 if (!silent) UI.showToast("SimpleTranslator is up to date!", { type: "success" });
+                this._scheduleUpdateReset(panelRef);
             }
         } catch (err) {
             this._updateState = { status: "error", latestVersion: null, remoteText: null };
@@ -1685,6 +1659,7 @@ module.exports = class SimpleTranslator {
                 UI.showToast("Error checking for updates: " + err.message, { type: "error" });
                 console.error("[SimpleTranslator] Manual check error:", err);
             }
+            this._scheduleUpdateReset(panelRef);
         }
     }
 
@@ -1695,6 +1670,11 @@ module.exports = class SimpleTranslator {
     }
 
     async _autoInstall(remoteVersion, remoteText, panelRef = null) {
+        if (this._updateResetTimer) {
+            clearTimeout(this._updateResetTimer);
+            this._updateResetTimer = null;
+        }
+
         if (SimpleTranslator._installInProgress) return;
         SimpleTranslator._installInProgress = true;
 
@@ -1709,7 +1689,7 @@ module.exports = class SimpleTranslator {
 
             try {
                 if (BdApi.Plugins.isEnabled(PLUGIN_ID)) BdApi.Plugins.disable(PLUGIN_ID);
-            } catch (_) { /* ignore if already disabled */ }
+            } catch (_) {}
 
             fs.writeFileSync(dest, remoteText, "utf8");
 
@@ -1749,18 +1729,18 @@ module.exports = class SimpleTranslator {
             error: `<path d="M8 3.5v5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="8" cy="11.5" r="0.75" fill="currentColor"/>`
         };
         const states = {
-            idle: { label: `Check for updates (v${SimpleTranslator.VERSION})`, cls: "", disabled: false },
+            idle: { label: `Check for updates`, cls: "", disabled: false },
             checking: { label: "Checking…", cls: "is-checking", disabled: true },
-            upToDate: { label: `Up to date (v${SimpleTranslator.VERSION})`, cls: "is-up-to-date", disabled: false },
+            upToDate: { label: `Up to date`, cls: "is-up-to-date", disabled: false },
             available: { label: `Install update (v${this._updateState.latestVersion})`, cls: "is-update-available", disabled: false },
             error: { label: "Error — try again", cls: "is-error", disabled: false }
         };
         const s = states[this._updateState.status] || states.idle;
         const icon = iconPaths[this._updateState.status] || iconPaths.idle;
         const labelEl = btn.querySelector(".st-btn-label");
-        const iconEl = btn.querySelector(".st-btn-icon");
+        const svgEl = btn.querySelector(".st-btn-icon svg");
         if (labelEl) labelEl.textContent = s.label;
-        if (iconEl) iconEl.innerHTML = icon;
+        if (svgEl) svgEl.innerHTML = icon;
         btn.disabled = s.disabled;
         btn.className = "st-update-btn " + s.cls;
         if (this._updateState.status === "available" && this._updateState.latestVersion) {
@@ -1807,26 +1787,6 @@ module.exports = class SimpleTranslator {
                 currentLanguages[a].localeCompare(currentLanguages[b])
             );
 
-            const groups = { "A-E": [], "F-K": [], "L-Q": [], "R-Z": [] };
-            const englishNames = {
-                "ar": "Arabic", "zh": "Chinese", "nl": "Dutch", "en": "English", "fr": "French",
-                "de": "German", "he": "Hebrew", "hi": "Hindi", "id": "Indonesian", "it": "Italian",
-                "ja": "Japanese", "ko": "Korean", "pl": "Polish", "pt": "Portuguese", "pt-PT": "Portuguese",
-                "ru": "Russian", "es": "Spanish", "sv": "Swedish", "th": "Thai", "tr": "Turkish", "vi": "Vietnamese",
-                "da": "Danish", "no": "Norwegian", "fi": "Finnish", "hr": "Croatian", "lt": "Lithuanian",
-                "hu": "Hungarian", "ro": "Romanian", "cs": "Czech", "el": "Greek", "bg": "Bulgarian",
-                "uk": "Ukrainian", "zh-TW": "Chinese"
-            };
-
-            for (const code of sortedCodes) {
-                const name = englishNames[code] || currentLanguages[code];
-                const firstLetter = name.charAt(0).toUpperCase();
-                if (firstLetter <= 'E') groups["A-E"].push(code);
-                else if (firstLetter <= 'K') groups["F-K"].push(code);
-                else if (firstLetter <= 'Q') groups["L-Q"].push(code);
-                else groups["R-Z"].push(code);
-            }
-
             const buildLangItems = (codes) => {
                 return codes.map(code => {
                     const name = currentLanguages[code];
@@ -1841,26 +1801,9 @@ module.exports = class SimpleTranslator {
                 });
             };
 
-            const submenu1 = ContextMenu.buildItem({
-                label: getLocaleString("langGroup1"),
-                children: buildLangItems(groups["A-E"])
-            });
-            const submenu2 = ContextMenu.buildItem({
-                label: getLocaleString("langGroup2"),
-                children: buildLangItems(groups["F-K"])
-            });
-            const submenu3 = ContextMenu.buildItem({
-                label: getLocaleString("langGroup3"),
-                children: buildLangItems(groups["L-Q"])
-            });
-            const submenu4 = ContextMenu.buildItem({
-                label: getLocaleString("langGroup4"),
-                children: buildLangItems(groups["R-Z"])
-            });
-
             const langSubmenu = ContextMenu.buildItem({
                 label: getLocaleString("changeTarget"),
-                children: [submenu1, submenu2, submenu3, submenu4]
+                children: buildLangItems(sortedCodes)
             });
 
             const topChildren = tree?.props?.children;
@@ -1881,6 +1824,11 @@ module.exports = class SimpleTranslator {
     }
 
     stop() {
+        if (this._updateResetTimer) {
+            clearTimeout(this._updateResetTimer);
+            this._updateResetTimer = null;
+        }
+
         if (this._menuPatch) {
             this._menuPatch();
             this._menuPatch = null;
@@ -2083,35 +2031,34 @@ module.exports = class SimpleTranslator {
                 color: var(--text-muted, #949ba4) !important;
             }
 
-            /* Update button styles */
             .st-update-btn {
-                display: flex !important;
+                display: inline-flex !important;
                 align-items: center !important;
-                justify-content: center !important;
-                gap: 8px !important;
-                padding: 6px 12px !important;
-                border-radius: 4px !important;
-                border: 1px solid #202225 !important;
-                background: #2f3136 !important;
-                color: #dcddde !important;
+                gap: 6px !important;
+                border-radius: 6px !important;
+                font-weight: 600 !important;
                 cursor: pointer !important;
-                font-size: 13px !important;
-                transition: background 0.15s !important;
-                margin-top: 12px !important;
-                text-align: center !important;
+                transition: background 160ms ease, color 160ms ease, border-color 160ms ease, transform 120ms ease, box-shadow 160ms ease !important;
                 white-space: nowrap !important;
+                padding: 8px 14px !important;
+                font-size: 13px !important;
+                background: var(--brand-experiment, #5865f2) !important;
+                color: #fff !important;
+                border: none !important;
+                margin-top: 12px !important;
             }
             .st-update-btn:hover:not(:disabled) {
-                background: #3a3c42 !important;
+                background: var(--brand-experiment-hover, #4752c4) !important;
+                transform: translateY(-1px) !important;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.25) !important;
             }
             .st-update-btn:disabled {
-                opacity: 0.6 !important;
-                cursor: not-allowed !important;
+                opacity: 0.55 !important;
+                cursor: default !important;
             }
             .st-update-btn .st-btn-icon {
-                display: inline-flex !important;
-                width: 16px !important;
-                height: 16px !important;
+                width: 14px !important;
+                height: 14px !important;
                 flex-shrink: 0 !important;
             }
             .st-update-btn .st-btn-icon svg {
@@ -2119,23 +2066,42 @@ module.exports = class SimpleTranslator {
                 height: 100% !important;
             }
             .st-update-btn.is-up-to-date {
-                border-color: #3ba55c !important;
-                color: #3ba55c !important;
+                background: var(--text-positive, #23a559) !important;
+                color: #fff !important;
+                border: none !important;
+            }
+            .st-update-btn.is-up-to-date:hover:not(:disabled) {
+                background: #1e8f4e !important;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.25) !important;
             }
             .st-update-btn.is-update-available {
-                border-color: #faa81a !important;
-                color: #faa81a !important;
+                background: var(--brand-experiment, #5865f2) !important;
+                color: #fff !important;
+                border: none !important;
+                animation: st-pulse-update 2s ease-in-out infinite !important;
+            }
+            .st-update-btn.is-update-available:hover:not(:disabled) {
+                filter: brightness(1.1) !important;
             }
             .st-update-btn.is-error {
-                border-color: #ed4245 !important;
-                color: #ed4245 !important;
+                background: var(--text-danger, #f23f43) !important;
+                color: #fff !important;
+                border: none !important;
+            }
+            .st-update-btn.is-error:hover:not(:disabled) {
+                background: #d73338 !important;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.25) !important;
             }
             .st-update-btn.is-checking .st-btn-icon {
-                animation: st-spin 1s linear infinite !important;
+                animation: st-spin 0.8s linear infinite !important;
             }
             @keyframes st-spin {
                 from { transform: rotate(0deg); }
                 to { transform: rotate(360deg); }
+            }
+            @keyframes st-pulse-update {
+                0%, 100% { box-shadow: 0 0 0 0 rgba(88,101,242,0.4); }
+                50% { box-shadow: 0 0 0 6px rgba(88,101,242,0); }
             }
         `;
         document.head.appendChild(style);
@@ -2680,7 +2646,7 @@ module.exports = class SimpleTranslator {
         contentEl.dataset.stOriginal = contentEl.innerHTML;
 
         const translatedSpan = document.createElement("span");
-        translatedSpan.textContent = cached.translatedText;
+        buildTranslatedContent(translatedSpan, cached.translatedText, cached.segments || []);
         translatedSpan.setAttribute("data-st-translated", cached.targetLang);
 
         const btn = document.createElement("span");
@@ -2706,11 +2672,14 @@ module.exports = class SimpleTranslator {
 
         try {
             if (contentEl && message.content?.trim()) {
-                const translated = await fetchTranslation(message.content, this.targetLang);
+                const { strippedText, segments } = extractCustomEmojis(message.content);
+                const translated = strippedText.trim()
+                    ? await fetchTranslation(strippedText, this.targetLang)
+                    : "";
                 contentEl.dataset.stOriginal = contentEl.innerHTML;
 
                 const translatedSpan = document.createElement("span");
-                translatedSpan.textContent = translated;
+                buildTranslatedContent(translatedSpan, translated, segments);
                 translatedSpan.setAttribute("data-st-translated", this.targetLang);
 
                 const btn = document.createElement("span");
@@ -2724,7 +2693,8 @@ module.exports = class SimpleTranslator {
 
                 this._translatedMessages.set(message.id, {
                     targetLang: this.targetLang,
-                    translatedText: translated
+                    translatedText: translated,
+                    segments
                 });
                 this._watchTranslatedMessage(message.id, this.targetLang);
             }
@@ -2732,7 +2702,10 @@ module.exports = class SimpleTranslator {
             if (replyEl) {
                 let replyRawText = message.referencedMessage?.content || getReplyRawText(replyEl);
                 if (replyRawText && replyRawText.trim()) {
-                    const translatedReply = await fetchTranslation(replyRawText, this.targetLang);
+                    const { strippedText: replyStrippedText, segments: replySegments } = extractCustomEmojis(replyRawText);
+                    const translatedReply = replyStrippedText.trim()
+                        ? await fetchTranslation(replyStrippedText, this.targetLang)
+                        : "";
 
                     if (!replyEl.dataset.stOriginal) {
                         const textNodes = [];
@@ -2751,7 +2724,9 @@ module.exports = class SimpleTranslator {
                         };
                         Array.from(replyEl.childNodes).forEach(collectTextNodes);
 
-                        if (textNodes.length > 0) {
+                        const replyHasEmojis = replySegments.some(s => s.type === "emoji");
+
+                        if (!replyHasEmojis && textNodes.length > 0) {
                             this._replyOriginalTextNodes.set(
                                 message.id,
                                 textNodes.map(n => ({ node: n, value: n.nodeValue }))
@@ -2759,10 +2734,20 @@ module.exports = class SimpleTranslator {
                             textNodes.forEach((n, i) => {
                                 n.nodeValue = i === 0 ? translatedReply : "";
                             });
+                        } else if (textNodes.length > 0) {
+                            this._replyOriginalTextNodes.set(
+                                message.id,
+                                textNodes.map(n => ({ node: n, value: n.nodeValue }))
+                            );
+                            const translatedSpan = document.createElement("span");
+                            translatedSpan.setAttribute("data-st-injected", "1");
+                            buildTranslatedContent(translatedSpan, translatedReply, replySegments);
+                            textNodes[0].parentNode.insertBefore(translatedSpan, textNodes[0]);
+                            textNodes.forEach(n => { n.nodeValue = ""; });
                         } else {
                             const translatedSpan = document.createElement("span");
-                            translatedSpan.textContent = translatedReply;
                             translatedSpan.setAttribute("data-st-injected", "1");
+                            buildTranslatedContent(translatedSpan, translatedReply, replySegments);
                             replyEl.appendChild(translatedSpan);
                         }
 
