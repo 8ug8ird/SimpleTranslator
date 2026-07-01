@@ -1,10 +1,10 @@
 /**
  * @name SimpleTranslator
  * @author 8ug8ird
- * @version 1.0.0
+ * @version 1.1.0
  * @authorId 698947564459917343
  * @description Translate messages or your own text before sending, directly in Discord.
- * @source https://github.com/8ug8ird
+ * @source https://github.com/8ug8ird/SimpleTranslator
  */
 
 const { ContextMenu, Data, UI } = BdApi;
@@ -1437,6 +1437,10 @@ const LANG_ABBR = {
 };
 
 module.exports = class SimpleTranslator {
+    static VERSION = "1.1.0";
+    static RAW_URL = "https://raw.githubusercontent.com/8ug8ird/SimpleTranslator/refs/heads/main/SimpleTranslator.plugin.js";
+    static RELEASE_URL = "https://github.com/8ug8ird/SimpleTranslator";
+
     constructor(meta) {
         this.meta = meta;
         this.targetLang = Data.load(PLUGIN_ID, "targetLang") || "en";
@@ -1458,6 +1462,312 @@ module.exports = class SimpleTranslator {
         this._translatedMessages = new Map();
         this._messageObservers = new Map();
         this._replyOriginalTextNodes = new Map();
+
+        this._updateState = { status: "idle", latestVersion: null, remoteText: null };
+        this._updateNotice = null;
+        this._lastNotifiedVersion = null;
+        this._periodicCheckInterval = null;
+        this._lastCheckTimestamp = this._loadLastCheck();
+    }
+
+
+    _formatDate(timestamp) {
+        if (!timestamp) return getLocaleString("noCheckYet");
+        try {
+            const date = new Date(timestamp);
+            return date.toLocaleString('en-US', {
+                month: '2-digit',
+                day: '2-digit',
+                year: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit',
+                hour12: true
+            });
+        } catch (_) {
+            return "Invalid date";
+        }
+    }
+
+    _loadLastCheck() {
+        try { return Data.load(PLUGIN_ID, "lastCheck") || null; } catch (_) { return null; }
+    }
+
+    _updateLastCheckTime() {
+        this._lastCheckTimestamp = Date.now();
+        try { Data.save(PLUGIN_ID, "lastCheck", this._lastCheckTimestamp); } catch (_) {}
+    }
+
+    _compareVersions(a, b) {
+        const pa = String(a).split(".").map(Number);
+        const pb = String(b).split(".").map(Number);
+        for (let i = 0; i < Math.max(pa.length, pb.length); i++) {
+            const diff = (pa[i] || 0) - (pb[i] || 0);
+            if (diff !== 0) return diff;
+        }
+        return 0;
+    }
+
+    async _httpsGet(url, _redirectCount = 0) {
+        if (_redirectCount > 5) throw new Error("Too many redirects");
+        if (typeof BdApi?.Net?.fetch === "function") {
+            const res = await BdApi.Net.fetch(url, { headers: { "User-Agent": "SimpleTranslator-UpdateChecker/1.0", "Cache-Control": "no-cache" } });
+            if (!res.ok) throw new Error(`HTTP ${res.status}`);
+            return res.text();
+        }
+        const _require = typeof window !== "undefined" && typeof window.require === "function"
+            ? window.require
+            : (typeof __non_webpack_require__ !== "undefined" ? __non_webpack_require__ : null);
+        if (_require) {
+            return new Promise((resolve, reject) => {
+                try {
+                    const https = _require("https");
+                    const urlObj = new URL(url);
+                    const options = {
+                        hostname: urlObj.hostname,
+                        path: urlObj.pathname + urlObj.search,
+                        method: "GET",
+                        headers: { "User-Agent": "SimpleTranslator-UpdateChecker/1.0", "Cache-Control": "no-cache" }
+                    };
+                    const req = https.request(options, res => {
+                        if (res.statusCode >= 300 && res.statusCode < 400 && res.headers.location) {
+                            this._httpsGet(res.headers.location, _redirectCount + 1).then(resolve).catch(reject);
+                            return;
+                        }
+                        if (res.statusCode !== 200) { reject(new Error(`HTTP ${res.statusCode}`)); return; }
+                        const chunks = [];
+                        res.on("data", c => chunks.push(c));
+                        res.on("end", () => resolve(Buffer.concat(chunks).toString("utf8")));
+                        res.on("error", reject);
+                    });
+                    req.on("error", reject);
+                    req.setTimeout(10000, () => { req.destroy(); reject(new Error("Timeout")); });
+                    req.end();
+                } catch (err) { reject(err); }
+            });
+        }
+        const res = await fetch(url, { headers: { "User-Agent": "SimpleTranslator-UpdateChecker/1.0", "Cache-Control": "no-cache" } });
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        return res.text();
+    }
+
+    _removeNotice() {
+        try {
+            if (this._updateNotice) {
+                if (typeof this._updateNotice.close === 'function') this._updateNotice.close();
+                else if (typeof this._updateNotice.remove === 'function') this._updateNotice.remove();
+                this._updateNotice = null;
+            }
+            document.querySelectorAll('.bd-notice').forEach(el => {
+                if (el.textContent && el.textContent.includes('SimpleTranslator')) {
+                    const closeBtn = el.querySelector('.bd-close-button, [aria-label="Close"]');
+                    if (closeBtn) closeBtn.click();
+                    else el.remove();
+                }
+            });
+        } catch (_) {}
+    }
+
+    async checkForUpdatesAuto() {
+        if (this._updateState.status === "checking") return;
+        const alreadyShowing = Array.from(document.querySelectorAll('.bd-notice'))
+            .some(el => el.textContent && el.textContent.includes('SimpleTranslator') && el.textContent.includes('update available'));
+        if (alreadyShowing) return;
+
+        this._updateState = { status: "checking", latestVersion: null, remoteText: null };
+        try {
+            const text = await this._httpsGet(SimpleTranslator.RAW_URL);
+            const match = text.match(/@version\s+([\d.]+)/);
+            if (!match) throw new Error("Version tag not found");
+            const remote = match[1];
+            const local = SimpleTranslator.VERSION;
+            const hasUpdate = this._compareVersions(remote, local) > 0;
+            this._updateLastCheckTime();
+            if (hasUpdate) {
+                if (remote !== this._lastNotifiedVersion) {
+                    this._lastNotifiedVersion = remote;
+                    this._removeNotice();
+                    try {
+                        this._updateNotice = BdApi.UI.showNotice(
+                            `🎉 SimpleTranslator v${remote} is out! You're on v${local} - update available.`,
+                            {
+                                timeout: 0,
+                                buttons: [
+                                    {
+                                        label: "Install now",
+                                        onClick: () => {
+                                            if (this._updateNotice) {
+                                                try { this._updateNotice.close(); } catch (_) {}
+                                                this._updateNotice = null;
+                                            }
+                                            this._autoInstall(remote, text);
+                                        }
+                                    },
+                                    {
+                                        label: "View on GitHub",
+                                        onClick: () => {
+                                            try { require("electron").shell.openExternal(SimpleTranslator.RELEASE_URL); } catch (_) { window.open(SimpleTranslator.RELEASE_URL, "_blank"); }
+                                        }
+                                    }
+                                ]
+                            }
+                        );
+                    } catch (_) {
+                        UI.showToast(`🎉 SimpleTranslator v${remote} available! Go to settings.`, { type: "info" });
+                    }
+                }
+                this._updateState = { status: "available", latestVersion: remote, remoteText: text };
+            } else {
+                this._updateState = { status: "idle", latestVersion: null, remoteText: null };
+            }
+        } catch (_) {
+            this._updateState = { status: "idle", latestVersion: null, remoteText: null };
+        }
+    }
+
+    async checkForUpdates(panelRef = null, silent = false) {
+        if (this._updateState.status === "checking") return;
+        this._updateState = { status: "checking", latestVersion: null, remoteText: null };
+        this._renderUpdateBtn(panelRef);
+        try {
+            const text = await this._httpsGet(SimpleTranslator.RAW_URL);
+            const match = text.match(/@version\s+([\d.]+)/);
+            if (!match) throw new Error("Version tag not found in remote file");
+            const remote = match[1];
+            const local = SimpleTranslator.VERSION;
+            const hasUpdate = this._compareVersions(remote, local) > 0;
+            this._updateLastCheckTime();
+            this._updatePanelInfo(panelRef);
+            if (hasUpdate) {
+                this._updateState = { status: "available", latestVersion: remote, remoteText: text };
+                this._renderUpdateBtn(panelRef);
+                if (remote !== this._lastNotifiedVersion) {
+                    this._lastNotifiedVersion = remote;
+                    this._removeNotice();
+                    try {
+                        this._updateNotice = BdApi.UI.showNotice(
+                            `🎉 SimpleTranslator v${remote} is out! You're on v${local} — update available.`,
+                            {
+                                timeout: 0,
+                                buttons: [
+                                    {
+                                        label: "Install now",
+                                        onClick: () => {
+                                            if (this._updateNotice) {
+                                                try { this._updateNotice.close(); } catch (_) {}
+                                                this._updateNotice = null;
+                                            }
+                                            this._autoInstall(remote, text, panelRef);
+                                        }
+                                    },
+                                    {
+                                        label: "View on GitHub",
+                                        onClick: () => {
+                                            try { require("electron").shell.openExternal(SimpleTranslator.RELEASE_URL); } catch (_) { window.open(SimpleTranslator.RELEASE_URL, "_blank"); }
+                                        }
+                                    }
+                                ]
+                            }
+                        );
+                    } catch (_) {
+                        UI.showToast(`Update available: v${remote}. Visit GitHub to download.`, { type: "info" });
+                    }
+                }
+            } else {
+                this._updateState = { status: "upToDate", latestVersion: remote, remoteText: null };
+                this._renderUpdateBtn(panelRef);
+                if (!silent) UI.showToast("SimpleTranslator is up to date!", { type: "success" });
+            }
+        } catch (err) {
+            this._updateState = { status: "error", latestVersion: null, remoteText: null };
+            this._renderUpdateBtn(panelRef);
+            if (!silent) {
+                UI.showToast("Error checking for updates: " + err.message, { type: "error" });
+                console.error("[SimpleTranslator] Manual check error:", err);
+            }
+        }
+    }
+
+    _updatePanelInfo(panelRef) {
+        if (!panelRef) return;
+        const infoEl = panelRef.querySelector('[data-st-last-check]');
+        if (infoEl) infoEl.textContent = `Last check: ${this._formatDate(this._lastCheckTimestamp)}`;
+    }
+
+    async _autoInstall(remoteVersion, remoteText, panelRef = null) {
+        if (SimpleTranslator._installInProgress) return;
+        SimpleTranslator._installInProgress = true;
+
+        try {
+            this._removeNotice();
+            this._lastNotifiedVersion = remoteVersion;
+
+            const fs = require("fs");
+            const path = require("path");
+            const pluginsDir = BdApi.Plugins.folder;
+            const dest = path.join(pluginsDir, "SimpleTranslator.plugin.js");
+
+            try {
+                if (BdApi.Plugins.isEnabled(PLUGIN_ID)) BdApi.Plugins.disable(PLUGIN_ID);
+            } catch (_) { /* ignore if already disabled */ }
+
+            fs.writeFileSync(dest, remoteText, "utf8");
+
+            this._updateState = { status: "upToDate", latestVersion: remoteVersion, remoteText: null };
+            this._renderUpdateBtn(panelRef);
+            this._updatePanelInfo(panelRef);
+
+            UI.showToast(`SimpleTranslator updated to v${remoteVersion}!`, { type: "success" });
+
+            setTimeout(() => {
+                try {
+                    BdApi.Plugins.enable(PLUGIN_ID);
+                    UI.showToast(`Plugin successfully re-activated (v${remoteVersion})!`, { type: "success" });
+                } catch (e) {
+                    console.error("[SimpleTranslator] Error reactivating:", e);
+                    UI.showToast("Plugin updated, but couldn't auto-reactivate. Disable and re-enable manually.", { type: "warning" });
+                } finally {
+                    SimpleTranslator._installInProgress = false;
+                }
+            }, 800);
+        } catch (err) {
+            SimpleTranslator._installInProgress = false;
+            UI.showToast("Auto-install failed: " + err.message + " — download manually from GitHub.", { type: "error" });
+            try { require("electron").shell.openExternal(SimpleTranslator.RELEASE_URL); } catch (_) { window.open(SimpleTranslator.RELEASE_URL, "_blank"); }
+        }
+    }
+
+    _renderUpdateBtn(panelRef) {
+        if (!panelRef) return;
+        const btn = panelRef.querySelector("[data-st-update-btn]");
+        if (!btn) return;
+        const iconPaths = {
+            idle: `<path d="M14 2v5h-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M13.5 7A5.5 5.5 0 1 1 10.5 2.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>`,
+            checking: `<path d="M14 2v5h-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M13.5 7A5.5 5.5 0 1 1 10.5 2.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>`,
+            upToDate: `<path d="M2.5 8.5l3.5 3.5 7.5-7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>`,
+            available: `<path d="M8 2v8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M5 7l3 3 3-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 13h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>`,
+            error: `<path d="M8 3.5v5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="8" cy="11.5" r="0.75" fill="currentColor"/>`
+        };
+        const states = {
+            idle: { label: `Check for updates (v${SimpleTranslator.VERSION})`, cls: "", disabled: false },
+            checking: { label: "Checking…", cls: "is-checking", disabled: true },
+            upToDate: { label: `Up to date (v${SimpleTranslator.VERSION})`, cls: "is-up-to-date", disabled: false },
+            available: { label: `Install update (v${this._updateState.latestVersion})`, cls: "is-update-available", disabled: false },
+            error: { label: "Error — try again", cls: "is-error", disabled: false }
+        };
+        const s = states[this._updateState.status] || states.idle;
+        const icon = iconPaths[this._updateState.status] || iconPaths.idle;
+        const labelEl = btn.querySelector(".st-btn-label");
+        const iconEl = btn.querySelector(".st-btn-icon");
+        if (labelEl) labelEl.textContent = s.label;
+        if (iconEl) iconEl.innerHTML = icon;
+        btn.disabled = s.disabled;
+        btn.className = "st-update-btn " + s.cls;
+        if (this._updateState.status === "available" && this._updateState.latestVersion) {
+            btn.title = `v${this._updateState.latestVersion} available`;
+        } else {
+            btn.title = "";
+        }
     }
 
     start() {
@@ -1565,6 +1875,9 @@ module.exports = class SimpleTranslator {
         this._injectInputButtons();
         this._setupNavigationListener();
         UI.showToast(getLocaleString("started"), { type: "success" });
+
+        setTimeout(() => this.checkForUpdatesAuto(), 5000);
+        this._periodicCheckInterval = setInterval(() => this.checkForUpdatesAuto(), 7200000);
     }
 
     stop() {
@@ -1584,6 +1897,11 @@ module.exports = class SimpleTranslator {
             el.innerHTML = el.dataset.stOriginal;
             delete el.dataset.stOriginal;
         });
+        this._removeNotice();
+        if (this._periodicCheckInterval) {
+            clearInterval(this._periodicCheckInterval);
+            this._periodicCheckInterval = null;
+        }
         UI.showToast(getLocaleString("stopped"), { type: "info" });
     }
 
@@ -1665,9 +1983,7 @@ module.exports = class SimpleTranslator {
 
     _setupScopedFallbackObserver() {
         if (this._observer) return;
-
         const scopedTarget = document.getElementById("app-mount") || document.body;
-
         this._observer = new MutationObserver(() => {
             clearTimeout(this._obsDebounce);
             this._obsDebounce = setTimeout(() => {
@@ -1766,6 +2082,61 @@ module.exports = class SimpleTranslator {
             .st-lang-btn.disabled {
                 color: var(--text-muted, #949ba4) !important;
             }
+
+            /* Update button styles */
+            .st-update-btn {
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                gap: 8px !important;
+                padding: 6px 12px !important;
+                border-radius: 4px !important;
+                border: 1px solid #202225 !important;
+                background: #2f3136 !important;
+                color: #dcddde !important;
+                cursor: pointer !important;
+                font-size: 13px !important;
+                transition: background 0.15s !important;
+                margin-top: 12px !important;
+                text-align: center !important;
+                white-space: nowrap !important;
+            }
+            .st-update-btn:hover:not(:disabled) {
+                background: #3a3c42 !important;
+            }
+            .st-update-btn:disabled {
+                opacity: 0.6 !important;
+                cursor: not-allowed !important;
+            }
+            .st-update-btn .st-btn-icon {
+                display: inline-flex !important;
+                width: 16px !important;
+                height: 16px !important;
+                flex-shrink: 0 !important;
+            }
+            .st-update-btn .st-btn-icon svg {
+                width: 100% !important;
+                height: 100% !important;
+            }
+            .st-update-btn.is-up-to-date {
+                border-color: #3ba55c !important;
+                color: #3ba55c !important;
+            }
+            .st-update-btn.is-update-available {
+                border-color: #faa81a !important;
+                color: #faa81a !important;
+            }
+            .st-update-btn.is-error {
+                border-color: #ed4245 !important;
+                color: #ed4245 !important;
+            }
+            .st-update-btn.is-checking .st-btn-icon {
+                animation: st-spin 1s linear infinite !important;
+            }
+            @keyframes st-spin {
+                from { transform: rotate(0deg); }
+                to { transform: rotate(360deg); }
+            }
         `;
         document.head.appendChild(style);
         this._styleElement = style;
@@ -1853,6 +2224,54 @@ module.exports = class SimpleTranslator {
                 </div>
             `;
             wrapper.appendChild(info);
+
+            const updateSection = document.createElement("div");
+            updateSection.style.cssText = "margin-top:20px; border-top:1px solid #202225; padding-top:16px;";
+
+            const updateTitle = document.createElement("div");
+            updateTitle.textContent = `Current version: v${SimpleTranslator.VERSION}`;
+            updateTitle.style.cssText = "font-size:14px; font-weight:600; margin-bottom:12px;";
+            updateSection.appendChild(updateTitle);
+
+            const btnContainer = document.createElement("div");
+            btnContainer.style.cssText = "display:flex; align-items:center; gap:12px; flex-wrap:wrap;";
+
+            const updateBtn = document.createElement("button");
+            updateBtn.setAttribute("data-st-update-btn", "true");
+            updateBtn.className = "st-update-btn";
+            updateBtn.innerHTML = `
+                <span class="st-btn-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2v5h-5"/><path d="M13.5 7A5.5 5.5 0 1 1 10.5 2.5"/></svg></span>
+                <span class="st-btn-label">Check for updates</span>
+            `;
+            updateBtn.addEventListener("click", () => {
+                if (this._updateState.status === "available" && this._updateState.remoteText) {
+                    this._autoInstall(this._updateState.latestVersion, this._updateState.remoteText, wrapper);
+                } else {
+                    this.checkForUpdates(wrapper, false);
+                }
+            });
+            btnContainer.appendChild(updateBtn);
+
+            const lastCheck = document.createElement("span");
+            lastCheck.setAttribute("data-st-last-check", "true");
+            lastCheck.textContent = `Last check: ${this._formatDate(this._lastCheckTimestamp)}`;
+            lastCheck.style.cssText = "font-size:12px; color:var(--text-muted, #949ba4);";
+            btnContainer.appendChild(lastCheck);
+
+            updateSection.appendChild(btnContainer);
+            wrapper.appendChild(updateSection);
+
+            if (this._updateState.status === "available") {
+                this._renderUpdateBtn(wrapper);
+            } else {
+                const oneHour = 3600000;
+                const lastCheck = this._lastCheckTimestamp || 0;
+                if (Date.now() - lastCheck > oneHour) {
+                    this.checkForUpdates(wrapper, true);
+                } else {
+                    this._renderUpdateBtn(wrapper);
+                }
+            }
 
             return wrapper;
         } catch (err) {
